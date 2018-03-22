@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="coqdoc.css" rel="stylesheet" type="text/css" />
+<title>lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv</title>
+</head>
+
+<body>
+
+<div id="page">
+
+<div id="header">
+</div>
+
+<div id="main">
+
+<h1 class="libtitle">Library lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv</h1>
+
+<div class="code">
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="lib.lib.CpdtTactics.html#"><span class="id" title="library">CpdtTactics</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="lib.soundness.LeakFree.html#"><span class="id" title="library">LeakFree</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="lib.lang.lemmas.Label.html#"><span class="id" title="library">Label</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="lib.lang.Lang.html#"><span class="id" title="library">Lang</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="lib.typechecking.lemmas.Env.html#"><span class="id" title="library">Env</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="lib.typechecking.Typeinfer.html#"><span class="id" title="library">Typeinfer</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.lang.Lang.html#ts_eq"><span class="id" title="definition">ts_eq</span></a>.<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#OutstateApprox"><span class="id" title="definition">OutstateApprox</span></a>.<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a>.<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#SStoreApprox"><span class="id" title="definition">SStoreApprox</span></a>.<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueApprox"><span class="id" title="definition">HMsgqueueApprox</span></a>.<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueSetApprox"><span class="id" title="definition">HMsgqueueSetApprox</span></a>.<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueApprox"><span class="id" title="definition">LMsgqueueApprox</span></a>.<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueSetApprox"><span class="id" title="definition">LMsgqueueSetApprox</span></a>.<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#PStateApprox"><span class="id" title="definition">PStateApprox</span></a>.<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#PStatesApprox"><span class="id" title="definition">PStatesApprox</span></a>.<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#SharedStateApprox"><span class="id" title="definition">SharedStateApprox</span></a>.<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#StateApprox"><span class="id" title="definition">StateApprox</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="PStoreApprox_refl"><span class="id" title="lemma">PStoreApprox_refl</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span>  <span class="id" title="var">l</span> <span class="id" title="var">ps</span> <span class="id" title="var">envp</span>, <a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps"><span class="id" title="variable">ps</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps"><span class="id" title="variable">ps</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp"><span class="id" title="variable">envp</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">PStoreApprox_refl</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="HMsgqueueApprox_refl"><span class="id" title="lemma">HMsgqueueApprox_refl</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span> <span class="id" title="var">hq</span> <span class="id" title="var">lm</span>, <a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueApprox"><span class="id" title="definition">HMsgqueueApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hq"><span class="id" title="variable">hq</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hq"><span class="id" title="variable">hq</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lm"><span class="id" title="variable">lm</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueApprox"><span class="id" title="definition">HMsgqueueApprox</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<a class="idref" href="lib.lang.lemmas.Label.html#labelleq_dec"><span class="id" title="lemma">labelleq_dec</span></a> <span class="id" title="var">lm</span> <span class="id" title="var">l</span>); <span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="LMsgqueueApprox_refl"><span class="id" title="lemma">LMsgqueueApprox_refl</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">lq</span>, <a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueApprox"><span class="id" title="definition">LMsgqueueApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lq"><span class="id" title="variable">lq</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lq"><span class="id" title="variable">lq</span></a> .<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">HMsgqueueApprox_refl</span>: <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">LMsgqueueApprox_refl</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="HMsgqueueSetApprox_refl"><span class="id" title="lemma">HMsgqueueSetApprox_refl</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span> <span class="id" title="var">hqs</span> <span class="id" title="var">lm</span>, <a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueSetApprox"><span class="id" title="definition">HMsgqueueSetApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hqs"><span class="id" title="variable">hqs</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hqs"><span class="id" title="variable">hqs</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lm"><span class="id" title="variable">lm</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="LMsgqueueSetApprox_refl"><span class="id" title="lemma">LMsgqueueSetApprox_refl</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">lqs</span>, <a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueSetApprox"><span class="id" title="definition">LMsgqueueSetApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lqs"><span class="id" title="variable">lqs</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lqs"><span class="id" title="variable">lqs</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">HMsgqueueSetApprox_refl</span>: <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">LMsgqueueSetApprox_refl</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="PStateApprox_refl"><span class="id" title="lemma">PStateApprox_refl</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">i</span> <span class="id" title="var">l</span> <span class="id" title="var">pst</span> <span class="id" title="var">envp</span>,  <a class="idref" href="lib.soundness.LeakFree.html#PStateApprox"><span class="id" title="definition">PStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst"><span class="id" title="variable">pst</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst"><span class="id" title="variable">pst</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp"><span class="id" title="variable">envp</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">pst</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">tpc</span> <span class="id" title="var">ps</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">PStateApprox_refl</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="PStatesApprox_refl"><span class="id" title="lemma">PStatesApprox_refl</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">i</span> <span class="id" title="var">l</span> <span class="id" title="var">psts</span> <span class="id" title="var">envps</span>,  <a class="idref" href="lib.soundness.LeakFree.html#PStatesApprox"><span class="id" title="definition">PStatesApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#psts"><span class="id" title="variable">psts</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#psts"><span class="id" title="variable">psts</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envps"><span class="id" title="variable">envps</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">PStatesApprox_refl</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="OutstateApprox_refl"><span class="id" title="lemma">OutstateApprox_refl</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">i</span> <span class="id" title="var">alpha</span>, <a class="idref" href="lib.soundness.LeakFree.html#OutstateApprox"><span class="id" title="definition">OutstateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#alpha"><span class="id" title="variable">alpha</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#alpha"><span class="id" title="variable">alpha</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">OutstateApprox_refl</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="SStoreApprox_refl"><span class="id" title="lemma">SStoreApprox_refl</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span>  <span class="id" title="var">l</span> <span class="id" title="var">ss</span> <span class="id" title="var">envs</span>, <a class="idref" href="lib.soundness.LeakFree.html#SStoreApprox"><span class="id" title="definition">SStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ss"><span class="id" title="variable">ss</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ss"><span class="id" title="variable">ss</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#SStoreApprox"><span class="id" title="definition">SStoreApprox</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">SStoreApprox_refl</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="SharedStateApprox_refl"><span class="id" title="lemma">SharedStateApprox_refl</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">sst</span> <span class="id" title="var">i</span> <span class="id" title="var">l</span> <span class="id" title="var">rho</span> <span class="id" title="var">envs</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#SharedStateApprox"><span class="id" title="definition">SharedStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sst"><span class="id" title="variable">sst</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sst"><span class="id" title="variable">sst</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#rho"><span class="id" title="variable">rho</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">sst</span> <span class="id" title="keyword">as</span> [[[<span class="id" title="var">ss</span> <span class="id" title="var">hqs</span>] <span class="id" title="var">lqs</span>] <span class="id" title="var">alpha</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">SharedStateApprox_refl</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="StateApprox_refl"><span class="id" title="lemma">StateApprox_refl</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">i</span> <span class="id" title="var">l</span> <span class="id" title="var">rho</span> <span class="id" title="var">pcs</span> <span class="id" title="var">sigma</span> <span class="id" title="var">envps</span> <span class="id" title="var">envs</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#StateApprox"><span class="id" title="definition">StateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sigma"><span class="id" title="variable">sigma</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sigma"><span class="id" title="variable">sigma</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#rho"><span class="id" title="variable">rho</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pcs"><span class="id" title="variable">pcs</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envps"><span class="id" title="variable">envps</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">sigma</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">psts</span> <span class="id" title="var">sst</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">StateApprox_refl</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="PStoreApprox_trans"><span class="id" title="lemma">PStoreApprox_trans</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">ps1</span> <span class="id" title="var">ps2</span> <span class="id" title="var">ps3</span> <span class="id" title="var">l</span> <span class="id" title="var">envs</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HPStoreApprox12</span>: <a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps1"><span class="id" title="variable">ps1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps2"><span class="id" title="variable">ps2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a>)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HPStoreApprox23</span>: <a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps2"><span class="id" title="variable">ps2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps3"><span class="id" title="variable">ps3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps1"><span class="id" title="variable">ps1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps3"><span class="id" title="variable">ps3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rename</span> <span class="id" title="var">ts2</span> <span class="id" title="var">into</span> <span class="id" title="var">ts3</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rename</span> <span class="id" title="var">n2</span> <span class="id" title="var">into</span> <span class="id" title="var">n3</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rename</span> <span class="id" title="var">Hps2x</span> <span class="id" title="var">into</span> <span class="id" title="var">Hps3x</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">remember</span> (<span class="id" title="var">ps2</span> <span class="id" title="var">x</span>) <span class="id" title="keyword">as</span> <span class="id" title="var">v</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rename</span> <span class="id" title="var">Heqv</span> <span class="id" title="var">into</span> <span class="id" title="var">Hps2x</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">v</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">ts2</span> <span class="id" title="var">n2</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#eq_sym"><span class="id" title="lemma">eq_sym</span></a> <span class="id" title="tactic">in</span> <span class="id" title="var">Hps2x</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">assert</span> (<span class="id" title="var">n1</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <span class="id" title="var">n2</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d82a7d96d3659d805ffe732283716822"><span class="id" title="notation">∧</span></a> <span class="id" title="var">ts1</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <span class="id" title="var">ts2</span>) <span class="id" title="keyword">as</span> <span class="id" title="var">Heq12</span> <span class="id" title="tactic">by</span> (<span class="id" title="tactic">eapply</span> <span class="id" title="var">HPStoreApprox12</span>; <span class="id" title="tactic">eauto</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">assert</span> (<span class="id" title="var">n2</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <span class="id" title="var">n3</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d82a7d96d3659d805ffe732283716822"><span class="id" title="notation">∧</span></a> <span class="id" title="var">ts2</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <span class="id" title="var">ts3</span>) <span class="id" title="keyword">as</span> <span class="id" title="var">Heq23</span> <span class="id" title="tactic">by</span> (<span class="id" title="tactic">eapply</span> <span class="id" title="var">HPStoreApprox23</span>; <span class="id" title="tactic">eauto</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">PStoreApprox_trans</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="HMsgqueueApprox_trans"><span class="id" title="lemma">HMsgqueueApprox_trans</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">hq1</span> <span class="id" title="var">hq2</span> <span class="id" title="var">hq3</span> <span class="id" title="var">l</span> <span class="id" title="var">lm</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueApprox"><span class="id" title="definition">HMsgqueueApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hq1"><span class="id" title="variable">hq1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hq2"><span class="id" title="variable">hq2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lm"><span class="id" title="variable">lm</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueApprox"><span class="id" title="definition">HMsgqueueApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hq2"><span class="id" title="variable">hq2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hq3"><span class="id" title="variable">hq3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lm"><span class="id" title="variable">lm</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueApprox"><span class="id" title="definition">HMsgqueueApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hq1"><span class="id" title="variable">hq1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hq3"><span class="id" title="variable">hq3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lm"><span class="id" title="variable">lm</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueApprox"><span class="id" title="definition">HMsgqueueApprox</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<a class="idref" href="lib.lang.lemmas.Label.html#labelleq_dec"><span class="id" title="lemma">labelleq_dec</span></a> <span class="id" title="var">lm</span> <span class="id" title="var">l</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">subst</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">HMsgqueueApprox_trans</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="LMsgqueueApprox_trans"><span class="id" title="lemma">LMsgqueueApprox_trans</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">lq1</span> <span class="id" title="var">lq2</span> <span class="id" title="var">lq3</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueApprox"><span class="id" title="definition">LMsgqueueApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lq1"><span class="id" title="variable">lq1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lq2"><span class="id" title="variable">lq2</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueApprox"><span class="id" title="definition">LMsgqueueApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lq2"><span class="id" title="variable">lq2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lq3"><span class="id" title="variable">lq3</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueApprox"><span class="id" title="definition">LMsgqueueApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lq1"><span class="id" title="variable">lq1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lq3"><span class="id" title="variable">lq3</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueApprox"><span class="id" title="definition">LMsgqueueApprox</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">congruence</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">LMsgqueueApprox_trans</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="HMsgqueueSetApprox_trans"><span class="id" title="lemma">HMsgqueueSetApprox_trans</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">hqs1</span> <span class="id" title="var">hqs2</span> <span class="id" title="var">hqs3</span> <span class="id" title="var">l</span> <span class="id" title="var">lm</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HMsgQueueSetApprox1</span>: <a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueSetApprox"><span class="id" title="definition">HMsgqueueSetApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hqs1"><span class="id" title="variable">hqs1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hqs2"><span class="id" title="variable">hqs2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lm"><span class="id" title="variable">lm</span></a>)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HMsgQueueSetApprox2</span>: <a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueSetApprox"><span class="id" title="definition">HMsgqueueSetApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hqs2"><span class="id" title="variable">hqs2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hqs3"><span class="id" title="variable">hqs3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lm"><span class="id" title="variable">lm</span></a>), <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueSetApprox"><span class="id" title="definition">HMsgqueueSetApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hqs1"><span class="id" title="variable">hqs1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hqs3"><span class="id" title="variable">hqs3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lm"><span class="id" title="variable">lm</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HMsgQueueSetApprox1</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">HMsgQueueSetApprox11</span> <span class="id" title="var">HMsgQueueSetApprox12</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HMsgQueueSetApprox2</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">HMsgQueueSetApprox21</span> <span class="id" title="var">HMsgQueueSetApprox22</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">t</span> <span class="id" title="var">hq1</span> <span class="id" title="var">HGethmsgqs1</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">HMsgQueueSetApprox11</span> <span class="id" title="var">t</span> <span class="id" title="var">hq1</span> <span class="id" title="var">HGethmsgqs1</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HMsgQueueSetApprox11</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">hq2</span> [<span class="id" title="var">HGethmsgqs2</span> <span class="id" title="var">HMsgqueueApprox1</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">HMsgQueueSetApprox21</span> <span class="id" title="var">t</span> <span class="id" title="var">hq2</span> <span class="id" title="var">HGethmsgqs2</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HMsgQueueSetApprox21</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">hq3</span> [<span class="id" title="var">HGethmsgqs3</span> <span class="id" title="var">HMsgqueueApprox2</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">t</span> <span class="id" title="var">hq3</span> <span class="id" title="var">HGethmsgqs3</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">HMsgQueueSetApprox22</span> <span class="id" title="var">t</span> <span class="id" title="var">hq3</span> <span class="id" title="var">HGethmsgqs3</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HMsgQueueSetApprox22</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">hq2</span> [<span class="id" title="var">HGethmsgqs2</span> <span class="id" title="var">HMsgqueueApprox2</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">HMsgQueueSetApprox12</span> <span class="id" title="var">t</span> <span class="id" title="var">hq2</span> <span class="id" title="var">HGethmsgqs2</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HMsgQueueSetApprox12</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">hq1</span> [<span class="id" title="var">HGethmsgqs1</span> <span class="id" title="var">HMsgqueueApprox1</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">HMsgqueueSetApprox_trans</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="LMsgqueueSetApprox_trans"><span class="id" title="lemma">LMsgqueueSetApprox_trans</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">lqs1</span> <span class="id" title="var">lqs2</span> <span class="id" title="var">lqs3</span> <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">LMsgQueueSetApprox1</span>: <a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueSetApprox"><span class="id" title="definition">LMsgqueueSetApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lqs1"><span class="id" title="variable">lqs1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lqs2"><span class="id" title="variable">lqs2</span></a> )<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">LMsgQueueSetApprox2</span>: <a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueSetApprox"><span class="id" title="definition">LMsgqueueSetApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lqs2"><span class="id" title="variable">lqs2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lqs3"><span class="id" title="variable">lqs3</span></a> ), <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueSetApprox"><span class="id" title="definition">LMsgqueueSetApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lqs1"><span class="id" title="variable">lqs1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lqs3"><span class="id" title="variable">lqs3</span></a> .<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">LMsgQueueSetApprox1</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">LMsgQueueSetApprox11</span> <span class="id" title="var">LMsgQueueSetApprox12</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">LMsgQueueSetApprox2</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">LMsgQueueSetApprox21</span> <span class="id" title="var">LMsgQueueSetApprox22</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">t</span> <span class="id" title="var">lq1</span> <span class="id" title="var">HGethmsgqs1</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">LMsgQueueSetApprox11</span> <span class="id" title="var">t</span> <span class="id" title="var">lq1</span> <span class="id" title="var">HGethmsgqs1</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">LMsgQueueSetApprox11</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">lq2</span> [<span class="id" title="var">HGethmsgqs2</span> <span class="id" title="var">LMsgqueueApprox1</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">LMsgQueueSetApprox21</span> <span class="id" title="var">t</span> <span class="id" title="var">lq2</span> <span class="id" title="var">HGethmsgqs2</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">LMsgQueueSetApprox21</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">lq3</span> [<span class="id" title="var">HGethmsgqs3</span> <span class="id" title="var">LMsgqueueApprox2</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">t</span> <span class="id" title="var">lq3</span> <span class="id" title="var">HGethmsgqs3</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">LMsgQueueSetApprox22</span> <span class="id" title="var">t</span> <span class="id" title="var">lq3</span> <span class="id" title="var">HGethmsgqs3</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">LMsgQueueSetApprox22</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">lq2</span> [<span class="id" title="var">HGethmsgqs2</span> <span class="id" title="var">LMsgqueueApprox2</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">LMsgQueueSetApprox12</span> <span class="id" title="var">t</span> <span class="id" title="var">lq2</span> <span class="id" title="var">HGethmsgqs2</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">LMsgQueueSetApprox12</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">lq1</span> [<span class="id" title="var">HGethmsgqs1</span> <span class="id" title="var">LMsgqueueApprox1</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">LMsgqueueSetApprox_trans</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="PStateApprox_trans"><span class="id" title="lemma">PStateApprox_trans</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">pst1</span> <span class="id" title="var">pst2</span> <span class="id" title="var">pst3</span> <span class="id" title="var">i</span> <span class="id" title="var">l</span> <span class="id" title="var">envp</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HPStateApprox12</span>: <a class="idref" href="lib.soundness.LeakFree.html#PStateApprox"><span class="id" title="definition">PStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst1"><span class="id" title="variable">pst1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst2"><span class="id" title="variable">pst2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp"><span class="id" title="variable">envp</span></a>)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HPStateApprox23</span>: <a class="idref" href="lib.soundness.LeakFree.html#PStateApprox"><span class="id" title="definition">PStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst2"><span class="id" title="variable">pst2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst3"><span class="id" title="variable">pst3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp"><span class="id" title="variable">envp</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#PStateApprox"><span class="id" title="definition">PStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst1"><span class="id" title="variable">pst1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst3"><span class="id" title="variable">pst3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp"><span class="id" title="variable">envp</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">pst1</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">tpc1</span> <span class="id" title="var">ps1</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">pst2</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">tpc2</span> <span class="id" title="var">ps2</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">pst3</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">tpc3</span> <span class="id" title="var">ps3</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#PStateApprox"><span class="id" title="definition">PStateApprox</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">PStateApprox_trans</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="OutstateApprox_trans"><span class="id" title="lemma">OutstateApprox_trans</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">a1</span> <span class="id" title="var">a2</span> <span class="id" title="var">a3</span> <span class="id" title="var">i</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#OutstateApprox"><span class="id" title="definition">OutstateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#a1"><span class="id" title="variable">a1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#a2"><span class="id" title="variable">a2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#OutstateApprox"><span class="id" title="definition">OutstateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#a2"><span class="id" title="variable">a2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#a3"><span class="id" title="variable">a3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#OutstateApprox"><span class="id" title="definition">OutstateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#a1"><span class="id" title="variable">a1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#a3"><span class="id" title="variable">a3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">OutstateApprox_trans</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="PStatesApprox_trans"><span class="id" title="lemma">PStatesApprox_trans</span></a>:<br/>
+&nbsp;&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">psts1</span> <span class="id" title="var">psts2</span> <span class="id" title="var">psts3</span> <span class="id" title="var">l</span> <span class="id" title="var">pcs</span> <span class="id" title="var">envps</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HPStatesApprox12</span>: <a class="idref" href="lib.soundness.LeakFree.html#PStatesApprox"><span class="id" title="definition">PStatesApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#psts1"><span class="id" title="variable">psts1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#psts2"><span class="id" title="variable">psts2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pcs"><span class="id" title="variable">pcs</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envps"><span class="id" title="variable">envps</span></a>)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HPStatesApprox23</span>: <a class="idref" href="lib.soundness.LeakFree.html#PStatesApprox"><span class="id" title="definition">PStatesApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#psts2"><span class="id" title="variable">psts2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#psts3"><span class="id" title="variable">psts3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pcs"><span class="id" title="variable">pcs</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envps"><span class="id" title="variable">envps</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#PStatesApprox"><span class="id" title="definition">PStatesApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#psts1"><span class="id" title="variable">psts1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#psts3"><span class="id" title="variable">psts3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pcs"><span class="id" title="variable">pcs</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envps"><span class="id" title="variable">envps</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#PStatesApprox"><span class="id" title="definition">PStatesApprox</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HPStatesApprox12</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">HPStatesApprox121</span> <span class="id" title="var">HPStatesApprox122</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HPStatesApprox23</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">HPStatesApprox231</span> <span class="id" title="var">HPStatesApprox232</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">t</span> <span class="id" title="var">pst1</span> <span class="id" title="var">HGetpsts1</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">HPStatesApprox121</span> <span class="id" title="var">t</span> <span class="id" title="var">pst1</span> <span class="id" title="var">HGetpsts1</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HPStatesApprox121</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">pst2</span> [<span class="id" title="var">HPStatesApprox1211</span> <span class="id" title="var">HPStatesApprox1212</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">HPStatesApprox231</span> <span class="id" title="var">t</span> <span class="id" title="var">pst2</span> <span class="id" title="var">HPStatesApprox1211</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HPStatesApprox231</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">pst3</span> [<span class="id" title="var">HPStatesApprox2311</span> <span class="id" title="var">HPStatesApprox2312</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">t</span> <span class="id" title="var">pst3</span> <span class="id" title="var">HGetpsts3</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">HPStatesApprox232</span> <span class="id" title="var">t</span> <span class="id" title="var">pst3</span> <span class="id" title="var">HGetpsts3</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HPStatesApprox232</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">pst2</span> [<span class="id" title="var">HPStatesApprox2321</span> <span class="id" title="var">HPStatesApprox2322</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">HPStatesApprox122</span> <span class="id" title="var">t</span> <span class="id" title="var">pst2</span> <span class="id" title="var">HPStatesApprox2321</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HPStatesApprox122</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">pst1</span> [<span class="id" title="var">HPStatesApprox1221</span> <span class="id" title="var">HPStatesApprox1222</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">PStatesApprox_trans</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="SStoreApprox_trans"><span class="id" title="lemma">SStoreApprox_trans</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">ss1</span> <span class="id" title="var">ss2</span> <span class="id" title="var">ss3</span> <span class="id" title="var">l</span> <span class="id" title="var">envs</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HSStoreApprox12</span>: <a class="idref" href="lib.soundness.LeakFree.html#SStoreApprox"><span class="id" title="definition">SStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ss1"><span class="id" title="variable">ss1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ss2"><span class="id" title="variable">ss2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a>)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HSStoreApprox23</span>: <a class="idref" href="lib.soundness.LeakFree.html#SStoreApprox"><span class="id" title="definition">SStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ss2"><span class="id" title="variable">ss2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ss3"><span class="id" title="variable">ss3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<a class="idref" href="lib.soundness.LeakFree.html#SStoreApprox"><span class="id" title="definition">SStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ss1"><span class="id" title="variable">ss1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ss3"><span class="id" title="variable">ss3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#SStoreApprox"><span class="id" title="definition">SStoreApprox</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rename</span> <span class="id" title="var">ts2</span> <span class="id" title="var">into</span> <span class="id" title="var">ts3</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rename</span> <span class="id" title="var">n2</span> <span class="id" title="var">into</span> <span class="id" title="var">n3</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rename</span> <span class="id" title="var">Hss2x</span> <span class="id" title="var">into</span> <span class="id" title="var">Hps3x</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">remember</span> (<span class="id" title="var">ss2</span> <span class="id" title="var">x</span>) <span class="id" title="keyword">as</span> <span class="id" title="var">v</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rename</span> <span class="id" title="var">Heqv</span> <span class="id" title="var">into</span> <span class="id" title="var">Hss2x</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">v</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">ts2</span> <span class="id" title="var">n2</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#eq_sym"><span class="id" title="lemma">eq_sym</span></a> <span class="id" title="tactic">in</span> <span class="id" title="var">Hss2x</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">assert</span> (<span class="id" title="var">n1</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <span class="id" title="var">n2</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d82a7d96d3659d805ffe732283716822"><span class="id" title="notation">∧</span></a> <span class="id" title="var">ts1</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <span class="id" title="var">ts2</span>) <span class="id" title="keyword">as</span> <span class="id" title="var">Heq12</span> <span class="id" title="tactic">by</span> (<span class="id" title="tactic">eapply</span> <span class="id" title="var">HSStoreApprox12</span>; <span class="id" title="tactic">eauto</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">assert</span> (<span class="id" title="var">n2</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <span class="id" title="var">n3</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d82a7d96d3659d805ffe732283716822"><span class="id" title="notation">∧</span></a> <span class="id" title="var">ts2</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <span class="id" title="var">ts3</span>) <span class="id" title="keyword">as</span> <span class="id" title="var">Heq23</span> <span class="id" title="tactic">by</span> (<span class="id" title="tactic">eapply</span> <span class="id" title="var">HSStoreApprox23</span>; <span class="id" title="tactic">eauto</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">SStoreApprox_trans</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="SharedStateApprox_trans"><span class="id" title="lemma">SharedStateApprox_trans</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">sst1</span> <span class="id" title="var">sst2</span> <span class="id" title="var">sst3</span> <span class="id" title="var">i</span> <span class="id" title="var">l</span> <span class="id" title="var">rho</span> <span class="id" title="var">envs</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#SharedStateApprox"><span class="id" title="definition">SharedStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sst1"><span class="id" title="variable">sst1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sst2"><span class="id" title="variable">sst2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#rho"><span class="id" title="variable">rho</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#SharedStateApprox"><span class="id" title="definition">SharedStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sst2"><span class="id" title="variable">sst2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sst3"><span class="id" title="variable">sst3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#rho"><span class="id" title="variable">rho</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#SharedStateApprox"><span class="id" title="definition">SharedStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sst1"><span class="id" title="variable">sst1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sst3"><span class="id" title="variable">sst3</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#rho"><span class="id" title="variable">rho</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">sst1</span> <span class="id" title="keyword">as</span> [[[<span class="id" title="var">ss1</span> <span class="id" title="var">hqs1</span>] <span class="id" title="var">lqs1</span>] <span class="id" title="var">alpha1</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">sst2</span> <span class="id" title="keyword">as</span> [[[<span class="id" title="var">ss2</span> <span class="id" title="var">hqs2</span>] <span class="id" title="var">lqs2</span>] <span class="id" title="var">alpha2</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">sst3</span> <span class="id" title="keyword">as</span> [[[<span class="id" title="var">ss3</span> <span class="id" title="var">hqs3</span>] <span class="id" title="var">lqs3</span>] <span class="id" title="var">alpha3</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#SharedStateApprox"><span class="id" title="definition">SharedStateApprox</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">repeat</span> <span class="id" title="keyword">match</span> <span class="id" title="keyword">goal</span> <span class="id" title="keyword">with</span> [<span class="id" title="var">H</span>: <span class="id" title="var">_</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d82a7d96d3659d805ffe732283716822"><span class="id" title="notation">∧</span></a> <span class="id" title="var">_</span> |- <span class="id" title="var">_</span>] ⇒ <span class="id" title="tactic">destruct</span> <span class="id" title="var">H</span> <span class="id" title="keyword">end</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">SharedStateApprox_trans</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="PStoreApprox_sym"><span class="id" title="lemma">PStoreApprox_sym</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span>  <span class="id" title="var">l</span> <span class="id" title="var">ps1</span> <span class="id" title="var">ps2</span> <span class="id" title="var">envp</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HPStoreApprox</span>: <a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps1"><span class="id" title="variable">ps1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps2"><span class="id" title="variable">ps2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp"><span class="id" title="variable">envp</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps2"><span class="id" title="variable">ps2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps1"><span class="id" title="variable">ps1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp"><span class="id" title="variable">envp</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">assert</span> (<span class="id" title="var">n2</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <span class="id" title="var">n1</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d82a7d96d3659d805ffe732283716822"><span class="id" title="notation">∧</span></a> <a class="idref" href="lib.lang.Lang.html#ts_eq"><span class="id" title="definition">ts_eq</span></a> <span class="id" title="var">ts2</span> <span class="id" title="var">ts1</span>) <span class="id" title="tactic">by</span> <span class="id" title="tactic">eauto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">PStoreApprox_sym</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="HMsgqueueApprox_sym"><span class="id" title="lemma">HMsgqueueApprox_sym</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span> <span class="id" title="var">hq1</span> <span class="id" title="var">hq2</span> <span class="id" title="var">lm</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HHMsgQueueApprox</span>: <a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueApprox"><span class="id" title="definition">HMsgqueueApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hq1"><span class="id" title="variable">hq1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hq2"><span class="id" title="variable">hq2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lm"><span class="id" title="variable">lm</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueApprox"><span class="id" title="definition">HMsgqueueApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hq2"><span class="id" title="variable">hq2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hq1"><span class="id" title="variable">hq1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lm"><span class="id" title="variable">lm</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueApprox"><span class="id" title="definition">HMsgqueueApprox</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<a class="idref" href="lib.lang.lemmas.Label.html#labelleq_dec"><span class="id" title="lemma">labelleq_dec</span></a> <span class="id" title="var">lm</span> <span class="id" title="var">l</span>); <span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">HMsgqueueApprox_sym</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="LMsgqueueApprox_sym"><span class="id" title="lemma">LMsgqueueApprox_sym</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">lq1</span> <span class="id" title="var">lq2</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HLMsgqueueApprox</span>: <a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueApprox"><span class="id" title="definition">LMsgqueueApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lq1"><span class="id" title="variable">lq1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lq2"><span class="id" title="variable">lq2</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueApprox"><span class="id" title="definition">LMsgqueueApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lq2"><span class="id" title="variable">lq2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lq1"><span class="id" title="variable">lq1</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">LMsgqueueApprox_sym</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="HMsgqueueSetApprox_sym"><span class="id" title="lemma">HMsgqueueSetApprox_sym</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span> <span class="id" title="var">hqs1</span> <span class="id" title="var">hqs2</span> <span class="id" title="var">lm</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HHMsgQueueSetApprox</span>: <a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueSetApprox"><span class="id" title="definition">HMsgqueueSetApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hqs1"><span class="id" title="variable">hqs1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hqs2"><span class="id" title="variable">hqs2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lm"><span class="id" title="variable">lm</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#HMsgqueueSetApprox"><span class="id" title="definition">HMsgqueueSetApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hqs2"><span class="id" title="variable">hqs2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#hqs1"><span class="id" title="variable">hqs1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lm"><span class="id" title="variable">lm</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HHMsgQueueSetApprox</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">HMsgQueueSetApprox1</span> <span class="id" title="var">HMsgQueueSetApprox2</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">t</span> <span class="id" title="var">hq2</span> <span class="id" title="var">HGethmsgqs2</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">HMsgQueueSetApprox2</span> <span class="id" title="var">t</span> <span class="id" title="var">hq2</span> <span class="id" title="var">HGethmsgqs2</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HMsgQueueSetApprox2</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">hq1</span> [<span class="id" title="var">HGethmsgqsl</span> <span class="id" title="var">HMsgqueueApprox2</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">t</span> <span class="id" title="var">hq1</span> <span class="id" title="var">HGethmsgqs1</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">HMsgQueueSetApprox1</span> <span class="id" title="var">t</span> <span class="id" title="var">hq1</span> <span class="id" title="var">HGethmsgqs1</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HMsgQueueSetApprox1</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">hq2</span> [<span class="id" title="var">HGethmsgqs2</span> <span class="id" title="var">HMsgqueueApprox1</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">HMsgqueueSetApprox_sym</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="LMsgqueueSetApprox_sym"><span class="id" title="lemma">LMsgqueueSetApprox_sym</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">lqs1</span> <span class="id" title="var">lqs2</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HLMsgQueueSetApprox</span>: <a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueSetApprox"><span class="id" title="definition">LMsgqueueSetApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lqs1"><span class="id" title="variable">lqs1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lqs2"><span class="id" title="variable">lqs2</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#LMsgqueueSetApprox"><span class="id" title="definition">LMsgqueueSetApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lqs2"><span class="id" title="variable">lqs2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#lqs1"><span class="id" title="variable">lqs1</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HLMsgQueueSetApprox</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">LMsgQueueSetApprox1</span> <span class="id" title="var">LMsgQueueSetApprox2</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">t</span> <span class="id" title="var">lq2</span> <span class="id" title="var">HGetlmsgqs2</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">LMsgQueueSetApprox2</span> <span class="id" title="var">t</span> <span class="id" title="var">lq2</span> <span class="id" title="var">HGetlmsgqs2</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">LMsgQueueSetApprox2</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">lq1</span> [<span class="id" title="var">HGetlmsgqsl</span> <span class="id" title="var">LMsgqueueApprox2</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">t</span> <span class="id" title="var">lq1</span> <span class="id" title="var">HGetlmsgqs1</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">LMsgQueueSetApprox1</span> <span class="id" title="var">t</span> <span class="id" title="var">lq1</span> <span class="id" title="var">HGetlmsgqs1</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">LMsgQueueSetApprox1</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">lq2</span> [<span class="id" title="var">HGetlmsgqs2</span> <span class="id" title="var">LMsgqueueApprox1</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">LMsgqueueSetApprox_sym</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="PStateApprox_sym"><span class="id" title="lemma">PStateApprox_sym</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">i</span> <span class="id" title="var">l</span> <span class="id" title="var">pst1</span> <span class="id" title="var">pst2</span> <span class="id" title="var">envp</span> <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HPStateApprox</span>: <a class="idref" href="lib.soundness.LeakFree.html#PStateApprox"><span class="id" title="definition">PStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst1"><span class="id" title="variable">pst1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst2"><span class="id" title="variable">pst2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp"><span class="id" title="variable">envp</span></a> ),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#PStateApprox"><span class="id" title="definition">PStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst2"><span class="id" title="variable">pst2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst1"><span class="id" title="variable">pst1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp"><span class="id" title="variable">envp</span></a> .<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#PStateApprox"><span class="id" title="definition">PStateApprox</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">pst1</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">tpc1</span> <span class="id" title="var">ps1</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">pst2</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">tpc2</span> <span class="id" title="var">ps2</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">PStateApprox_sym</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="PStatesApprox_sym"><span class="id" title="lemma">PStatesApprox_sym</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span> <span class="id" title="var">psts1</span> <span class="id" title="var">psts2</span> <span class="id" title="var">pcs</span> <span class="id" title="var">envps</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HPStatesApprox</span>: <a class="idref" href="lib.soundness.LeakFree.html#PStatesApprox"><span class="id" title="definition">PStatesApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#psts1"><span class="id" title="variable">psts1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#psts2"><span class="id" title="variable">psts2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pcs"><span class="id" title="variable">pcs</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envps"><span class="id" title="variable">envps</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#PStatesApprox"><span class="id" title="definition">PStatesApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#psts2"><span class="id" title="variable">psts2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#psts1"><span class="id" title="variable">psts1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pcs"><span class="id" title="variable">pcs</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envps"><span class="id" title="variable">envps</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#PStatesApprox"><span class="id" title="definition">PStatesApprox</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HPStatesApprox</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">HPStatesApprox1</span> <span class="id" title="var">HPStatesApprox2</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">t</span> <span class="id" title="var">pst2</span> <span class="id" title="var">HGetpsts2</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">HPStatesApprox2</span> <span class="id" title="var">t</span> <span class="id" title="var">pst2</span>  <span class="id" title="var">HGetpsts2</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HPStatesApprox2</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">pst1</span> [<span class="id" title="var">HPStatesApprox21</span> <span class="id" title="var">HPStatesApprox22</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">t</span> <span class="id" title="var">pst1</span> <span class="id" title="var">HGetpsts1</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">HPStatesApprox1</span> <span class="id" title="var">t</span> <span class="id" title="var">pst1</span> <span class="id" title="var">HGetpsts1</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HPStatesApprox1</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">pst2</span> [<span class="id" title="var">HPStatesApprox11</span> <span class="id" title="var">HPStatesApprox12</span>]].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">PStatesApprox_sym</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="OutstateApprox_sym"><span class="id" title="lemma">OutstateApprox_sym</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">i</span> <span class="id" title="var">alpha1</span> <span class="id" title="var">alpha2</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HOutstateApprox</span>: <a class="idref" href="lib.soundness.LeakFree.html#OutstateApprox"><span class="id" title="definition">OutstateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#alpha1"><span class="id" title="variable">alpha1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#alpha2"><span class="id" title="variable">alpha2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#OutstateApprox"><span class="id" title="definition">OutstateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#alpha2"><span class="id" title="variable">alpha2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#alpha1"><span class="id" title="variable">alpha1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">OutstateApprox_sym</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="SStoreApprox_sym"><span class="id" title="lemma">SStoreApprox_sym</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span>  <span class="id" title="var">l</span> <span class="id" title="var">ss1</span> <span class="id" title="var">ss2</span> <span class="id" title="var">envs</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HSStoreApprox</span>: <a class="idref" href="lib.soundness.LeakFree.html#SStoreApprox"><span class="id" title="definition">SStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ss1"><span class="id" title="variable">ss1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ss2"><span class="id" title="variable">ss2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#SStoreApprox"><span class="id" title="definition">SStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ss2"><span class="id" title="variable">ss2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ss1"><span class="id" title="variable">ss1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#SStoreApprox"><span class="id" title="definition">SStoreApprox</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">assert</span> (<span class="id" title="var">n2</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <span class="id" title="var">n1</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d82a7d96d3659d805ffe732283716822"><span class="id" title="notation">∧</span></a> <a class="idref" href="lib.lang.Lang.html#ts_eq"><span class="id" title="definition">ts_eq</span></a> <span class="id" title="var">ts2</span> <span class="id" title="var">ts1</span>) <span class="id" title="tactic">by</span> <span class="id" title="tactic">eauto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">SStoreApprox_sym</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="SharedStateApprox_sym"><span class="id" title="lemma">SharedStateApprox_sym</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">sst1</span> <span class="id" title="var">sst2</span> <span class="id" title="var">i</span> <span class="id" title="var">l</span> <span class="id" title="var">rho</span> <span class="id" title="var">envs</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#SharedStateApprox"><span class="id" title="definition">SharedStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sst1"><span class="id" title="variable">sst1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sst2"><span class="id" title="variable">sst2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#rho"><span class="id" title="variable">rho</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#SharedStateApprox"><span class="id" title="definition">SharedStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sst2"><span class="id" title="variable">sst2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sst1"><span class="id" title="variable">sst1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#rho"><span class="id" title="variable">rho</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">sst1</span> <span class="id" title="keyword">as</span> [[[<span class="id" title="var">ss1</span> <span class="id" title="var">hqs1</span>] <span class="id" title="var">lqs1</span>] <span class="id" title="var">alpha1</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">sst2</span> <span class="id" title="keyword">as</span> [[[<span class="id" title="var">ss2</span> <span class="id" title="var">hqs2</span>] <span class="id" title="var">lqs2</span>] <span class="id" title="var">alpha2</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#SharedStateApprox"><span class="id" title="definition">SharedStateApprox</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">SharedStateApprox_sym</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="StateApprox_sym"><span class="id" title="lemma">StateApprox_sym</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">i</span> <span class="id" title="var">l</span> <span class="id" title="var">rho</span> <span class="id" title="var">pcs</span> <span class="id" title="var">sigma1</span> <span class="id" title="var">sigma2</span> <span class="id" title="var">envps</span> <span class="id" title="var">envs</span> <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HStateApprox</span>: <a class="idref" href="lib.soundness.LeakFree.html#StateApprox"><span class="id" title="definition">StateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sigma1"><span class="id" title="variable">sigma1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sigma2"><span class="id" title="variable">sigma2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#rho"><span class="id" title="variable">rho</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pcs"><span class="id" title="variable">pcs</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envps"><span class="id" title="variable">envps</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a> ),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#StateApprox"><span class="id" title="definition">StateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sigma2"><span class="id" title="variable">sigma2</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#sigma1"><span class="id" title="variable">sigma1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#i"><span class="id" title="variable">i</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#rho"><span class="id" title="variable">rho</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pcs"><span class="id" title="variable">pcs</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envps"><span class="id" title="variable">envps</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envs"><span class="id" title="variable">envs</span></a> .<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">sigma1</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">psts1</span> <span class="id" title="var">sst1</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">sigma2</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">psts2</span> <span class="id" title="var">sst2</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#StateApprox"><span class="id" title="definition">StateApprox</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">StateApprox_sym</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="PStoreApprox_lt_envp"><span class="id" title="lemma">PStoreApprox_lt_envp</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">ps</span> <span class="id" title="var">ps'</span> <span class="id" title="var">l</span> <span class="id" title="var">envp1</span> <span class="id" title="var">envp2</span><br/>
+&nbsp;&nbsp;(<span class="id" title="var">Henvleq</span> : <a class="idref" href="lib.typechecking.Typeinfer.html#leq_env"><span class="id" title="definition">leq_env</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp1"><span class="id" title="variable">envp1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp2"><span class="id" title="variable">envp2</span></a>)<br/>
+&nbsp;&nbsp;(<span class="id" title="var">HPStoreApprox</span>: <a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps"><span class="id" title="variable">ps</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps'"><span class="id" title="variable">ps'</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp1"><span class="id" title="variable">envp1</span></a>),<br/>
+&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps"><span class="id" title="variable">ps</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#ps'"><span class="id" title="variable">ps'</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp2"><span class="id" title="variable">envp2</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eapply</span> <span class="id" title="var">HPStoreApprox</span>; <span class="id" title="tactic">eauto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">subst</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>; <span class="id" title="tactic">eauto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="PStateApprox_lt_envp"><span class="id" title="lemma">PStateApprox_lt_envp</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">pst</span> <span class="id" title="var">pst'</span> <span class="id" title="var">l</span> <span class="id" title="var">pc</span> <span class="id" title="var">envp1</span> <span class="id" title="var">envp2</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">Henvleq</span>: <a class="idref" href="lib.typechecking.Typeinfer.html#leq_env"><span class="id" title="definition">leq_env</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp1"><span class="id" title="variable">envp1</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp2"><span class="id" title="variable">envp2</span></a>)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HPStateApprox</span> : <a class="idref" href="lib.soundness.LeakFree.html#PStateApprox"><span class="id" title="definition">PStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst"><span class="id" title="variable">pst</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst'"><span class="id" title="variable">pst'</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pc"><span class="id" title="variable">pc</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp1"><span class="id" title="variable">envp1</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#PStateApprox"><span class="id" title="definition">PStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst"><span class="id" title="variable">pst</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst'"><span class="id" title="variable">pst'</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pc"><span class="id" title="variable">pc</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp2"><span class="id" title="variable">envp2</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">pst</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">tpc</span> <span class="id" title="var">ps</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">pst'</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">tpc'</span> <span class="id" title="var">ps'</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HPStateApprox</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eapply</span> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#PStoreApprox_lt_envp"><span class="id" title="lemma">PStoreApprox_lt_envp</span></a>; <span class="id" title="tactic">eauto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">PStoreApprox_lt_envp</span>: <span class="id" title="var">basestate</span>.<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">PStateApprox_lt_envp</span>: <span class="id" title="var">basestate</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="PStateApprox_leq_env"><span class="id" title="lemma">PStateApprox_leq_env</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">pst</span> <span class="id" title="var">pst'</span> <span class="id" title="var">l</span> <span class="id" title="var">pc</span> <span class="id" title="var">envp</span> <span class="id" title="var">envp'</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">Hleqenv</span>: <a class="idref" href="lib.typechecking.Typeinfer.html#leq_env"><span class="id" title="definition">leq_env</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp"><span class="id" title="variable">envp</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp'"><span class="id" title="variable">envp'</span></a>)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">HPStateApprox</span>: <a class="idref" href="lib.soundness.LeakFree.html#PStateApprox"><span class="id" title="definition">PStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst"><span class="id" title="variable">pst</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst'"><span class="id" title="variable">pst'</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pc"><span class="id" title="variable">pc</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp"><span class="id" title="variable">envp</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.soundness.LeakFree.html#PStateApprox"><span class="id" title="definition">PStateApprox</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst"><span class="id" title="variable">pst</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pst'"><span class="id" title="variable">pst'</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#pc"><span class="id" title="variable">pc</span></a> <a class="idref" href="lib.soundness.simulation.welltype_tsim.lemmas.StateEquiv.html#envp'"><span class="id" title="variable">envp'</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">pst</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">tpc</span> <span class="id" title="var">ps</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">pst'</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">tpc'</span> <span class="id" title="var">ps'</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">HPStateApprox</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">HPStateApprox1</span> <span class="id" title="var">HPStateApprox2</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">unfold</span> <a class="idref" href="lib.soundness.LeakFree.html#PStoreApprox"><span class="id" title="definition">PStoreApprox</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">eapply</span> <span class="id" title="var">HPStateApprox2</span>; <span class="id" title="tactic">eauto</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.typechecking.Typeinfer.html#leq_env"><span class="id" title="definition">leq_env</span></a> <span class="id" title="tactic">in</span> <span class="id" title="var">Hleqenv</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">subst</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">PStateApprox_leq_env</span>: <span class="id" title="var">baseenv</span>.<br/>
+</div>
+</div>
+
+<div id="footer">
+<hr/><a href="index.html">Index</a><hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
+</div>
+
+</div>
+
+</body>
+</html>

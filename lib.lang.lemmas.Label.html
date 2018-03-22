@@ -1,0 +1,680 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="coqdoc.css" rel="stylesheet" type="text/css" />
+<title>lib.lang.lemmas.Label</title>
+</head>
+
+<body>
+
+<div id="page">
+
+<div id="header">
+</div>
+
+<div id="main">
+
+<h1 class="libtitle">Library lib.lang.lemmas.Label</h1>
+
+<div class="code">
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Arith.Arith.html#"><span class="id" title="library">Arith</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="lib.lang.Lang.html#"><span class="id" title="library">Lang</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.ListSet.html#"><span class="id" title="library">ListSet</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.List.html#"><span class="id" title="library">List</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="lib.lib.CpdtTactics.html#"><span class="id" title="library">CpdtTactics</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="lib.lemmas.MListSet.html#"><span class="id" title="library">MListSet</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab13"></a><h1 class="section">Some Definitions</h1>
+
+</div>
+<div class="code">
+<span class="id" title="keyword">Definition</span> <a name="lempty"><span class="id" title="definition">lempty</span></a> := <a class="idref" href="lib.lang.Lang.html#LElemSet"><span class="id" title="constructor">LElemSet</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nil"><span class="id" title="constructor">nil</span></a>).<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab14"></a><h1 class="section">Decidability of the equal of the Label</h1>
+
+</div>
+<div class="code">
+<span class="id" title="keyword">Lemma</span> <a name="eq_Label_dec"><span class="id" title="lemma">eq_Label_dec</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> (<span class="id" title="var">l1</span> <span class="id" title="var">l2</span>: <a class="idref" href="lib.lang.Lang.html#Label"><span class="id" title="inductive">Label</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">{</span></a><a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">}</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">+</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">{</span></a><a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#32263a1c8b01baecdff9deb038955bc9"><span class="id" title="notation">≠</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">}</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">decide</span> <span class="id" title="var">equality</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">decide</span> <span class="id" title="var">equality</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">decide</span> <span class="id" title="var">equality</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab15"></a><h1 class="section">Lemmas about labelleq and lunion</h1>
+
+</div>
+<div class="code">
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> :<span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="label_labelleq_LTop"><span class="id" title="lemma">label_labelleq_LTop</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span>, <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.lang.Lang.html#LTop"><span class="id" title="constructor">LTop</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labelleq_LTop_LTop"><span class="id" title="lemma">labelleq_LTop_LTop</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span>, <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.Lang.html#LTop"><span class="id" title="constructor">LTop</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a><a class="idref" href="lib.lang.Lang.html#LTop"><span class="id" title="constructor">LTop</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.List.html#incl"><span class="id" title="definition">incl</span></a>.<br/>
+<span class="id" title="keyword">Lemma</span> <a name="nil_labelleq_label"><span class="id" title="lemma">nil_labelleq_label</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> (<a class="idref" href="lib.lang.Lang.html#LElemSet"><span class="id" title="constructor">LElemSet</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nil"><span class="id" title="constructor">nil</span></a>) <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">∃</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nil"><span class="id" title="constructor">nil</span></a>, <span class="id" title="var">les</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labelleq_nil_nil"><span class="id" title="lemma">labelleq_nil_nil</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> (<a class="idref" href="lib.lang.Lang.html#LElemSet"><span class="id" title="constructor">LElemSet</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nil"><span class="id" title="constructor">nil</span></a>) <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">(</span></a><a class="idref" href="lib.lang.Lang.html#LElemSet"><span class="id" title="constructor">LElemSet</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nil"><span class="id" title="constructor">nil</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">)</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">x</span>; <span class="id" title="var">crush</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.List.html#incl"><span class="id" title="definition">incl</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">specialize</span> (<span class="id" title="var">H2</span> <span class="id" title="var">v</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labelleq_union_lemma"><span class="id" title="lemma">labelleq_union_lemma</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span>  <span class="id" title="var">a</span> <span class="id" title="var">s</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> (<a class="idref" href="lib.lang.Lang.html#LElemSet"><span class="id" title="constructor">LElemSet</span></a> (<a class="idref" href="lib.lang.lemmas.Label.html#a"><span class="id" title="variable">a</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#0a8150c3c4df34d205c5ed9a427e2ed5"><span class="id" title="notation">::</span></a><a class="idref" href="lib.lang.lemmas.Label.html#s"><span class="id" title="variable">s</span></a>))<a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a>  (<a class="idref" href="lib.lang.Lang.html#LElemSet"><span class="id" title="constructor">LElemSet</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#s"><span class="id" title="variable">s</span></a>) <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">∃</span> <span class="id" title="var">s</span>, <span class="id" title="var">x0</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labelleq_union_lemma1"><span class="id" title="lemma">labelleq_union_lemma1</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span>  <span class="id" title="var">s1</span> <span class="id" title="var">s</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> (<a class="idref" href="lib.lang.Lang.html#LElemSet"><span class="id" title="constructor">LElemSet</span></a> (<a class="idref" href="lib.lang.lemmas.Label.html#s1"><span class="id" title="variable">s1</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#5d35a99a6abff1d64bf70538feb70e36"><span class="id" title="notation">++</span></a><a class="idref" href="lib.lang.lemmas.Label.html#s"><span class="id" title="variable">s</span></a>))<a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a>  (<a class="idref" href="lib.lang.Lang.html#LElemSet"><span class="id" title="constructor">LElemSet</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#s"><span class="id" title="variable">s</span></a>) <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">∃</span> <span class="id" title="var">s</span>, <span class="id" title="var">x0</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">set_union_intro1</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labelleq_union"><span class="id" title="lemma">labelleq_union</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span> <span class="id" title="var">l</span> <span class="id" title="var">l0</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l0"><span class="id" title="variable">l0</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">(</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l0"><span class="id" title="variable">l0</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d82a7d96d3659d805ffe732283716822"><span class="id" title="notation">∧</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l0"><span class="id" title="variable">l0</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">)</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l1</span>;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l2</span>; <span class="id" title="var">crush</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">∃</span> <span class="id" title="var">les</span>, <span class="id" title="var">x0</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.List.html#incl"><span class="id" title="definition">incl</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="var">H2</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.ListSet.html#set_union_intro1"><span class="id" title="lemma">set_union_intro1</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.List.html#incl"><span class="id" title="definition">incl</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">∃</span> <span class="id" title="var">les0</span>, <span class="id" title="var">x0</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>. <span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="var">H2</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.ListSet.html#set_union_intro2"><span class="id" title="lemma">set_union_intro2</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labelleq_trans"><span class="id" title="lemma">labelleq_trans</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span> <span class="id" title="var">l3</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l3"><span class="id" title="variable">l3</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l3"><span class="id" title="variable">l3</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l1</span>; <span class="id" title="tactic">destruct</span> <span class="id" title="var">l2</span>; <span class="id" title="tactic">destruct</span> <span class="id" title="var">l3</span>; <span class="id" title="var">crush</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">∃</span> <span class="id" title="var">x1</span>, <span class="id" title="var">x0</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="lunion_labelleq1"><span class="id" title="lemma">lunion_labelleq1</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span> <span class="id" title="var">l</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> (<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a>) <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">(</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d82a7d96d3659d805ffe732283716822"><span class="id" title="notation">∧</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">)</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l1</span>; <span class="id" title="tactic">destruct</span> <span class="id" title="var">l2</span>; <span class="id" title="tactic">destruct</span> <span class="id" title="var">l</span>; <span class="id" title="var">crush</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.List.html#incl"><span class="id" title="definition">incl</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">∃</span> <span class="id" title="var">les</span>, <span class="id" title="var">x0</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="var">H2</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.ListSet.html#set_union_intro1"><span class="id" title="lemma">set_union_intro1</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.List.html#incl"><span class="id" title="definition">incl</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">∃</span> <span class="id" title="var">les0</span>, <span class="id" title="var">x0</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="var">H2</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.ListSet.html#set_union_intro2"><span class="id" title="lemma">set_union_intro2</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="lunion_labelleq"><span class="id" title="lemma">lunion_labelleq</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span> <span class="id" title="var">l</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> (<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a>) <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l1</span>; <span class="id" title="tactic">destruct</span> <span class="id" title="var">l2</span>; <span class="id" title="var">crush</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">∃</span> (<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.ListSet.html#set_union"><span class="id" title="definition">set_union</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Arith.PeanoNat.html#Nat.eq_dec"><span class="id" title="lemma">Nat.eq_dec</span></a> <span class="id" title="var">x1</span> <span class="id" title="var">x</span>), <span class="id" title="var">x2</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.List.html#incl"><span class="id" title="definition">incl</span></a> <span class="id" title="tactic">in</span> ×.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.ListSet.html#set_union_elim"><span class="id" title="lemma">set_union_elim</span></a> <span class="id" title="tactic">in</span> <span class="id" title="var">H</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">crush</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labelleq_refl"><span class="id" title="lemma">labelleq_refl</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">left</span>; <span class="id" title="tactic">auto</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">∃</span> <span class="id" title="var">les</span>, <span class="id" title="var">les</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">labelleq_refl</span>: <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> : <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="lunion_LTop1"><span class="id" title="lemma">lunion_LTop1</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span>, <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.lang.Lang.html#LTop"><span class="id" title="constructor">LTop</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="lib.lang.Lang.html#LTop"><span class="id" title="constructor">LTop</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">induction</span> <span class="id" title="var">l</span>; <span class="id" title="tactic">auto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="lunion_LTop2"><span class="id" title="lemma">lunion_LTop2</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span>, <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.Lang.html#LTop"><span class="id" title="constructor">LTop</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="lib.lang.Lang.html#LTop"><span class="id" title="constructor">LTop</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labelleq_dec"><span class="id" title="lemma">labelleq_dec</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">{</span></a><a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">}</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">+</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">{</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#611abc97cba304de784fa909dbdea1fa"><span class="id" title="notation">¬</span></a> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">}</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">destruct</span> <span class="id" title="var">l1</span>; <span class="id" title="tactic">destruct</span> <span class="id" title="var">l2</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;+ <span class="id" title="tactic">left</span>; <span class="id" title="tactic">auto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;+ <span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intro</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">inversion</span> <span class="id" title="var">H</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;× <span class="id" title="tactic">congruence</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;× <span class="id" title="tactic">destruct</span> <span class="id" title="var">H0</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">les1</span> [<span class="id" title="var">les2</span> [<span class="id" title="var">H01</span> <span class="id" title="var">H02</span>]]].<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">congruence</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;+ <span class="id" title="tactic">left</span>. <span class="id" title="tactic">auto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;+ <span class="id" title="tactic">destruct</span> (<a class="idref" href="lib.lemmas.MListSet.html#incl_dec"><span class="id" title="lemma">incl_dec</span></a> <a class="idref" href="lib.lang.Lang.html#Vars"><span class="id" title="definition">Vars</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Arith.PeanoNat.html#Nat.eq_dec"><span class="id" title="lemma">Nat.eq_dec</span></a> <span class="id" title="var">les</span> <span class="id" title="var">les0</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;× <span class="id" title="tactic">left</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">eapply</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#ex_intro"><span class="id" title="constructor">ex_intro</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">eapply</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#ex_intro"><span class="id" title="constructor">ex_intro</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">eauto</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;× <span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intro</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">n</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <span class="id" title="tactic">in</span> <span class="id" title="var">H</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">H</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">inversion</span> <span class="id" title="var">H</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">H</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">les1</span> [<span class="id" title="var">les2</span> [<span class="id" title="var">H1</span> [<span class="id" title="var">H2</span> <span class="id" title="var">H3</span>]]]].<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">inversion</span> <span class="id" title="var">H1</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">inversion</span> <span class="id" title="var">H2</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">subst</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">labelleq_dec</span>: <span class="id" title="var">basedec</span>.<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">labelleq_dec</span>: <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="lunion_nil1"><span class="id" title="lemma">lunion_nil1</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> (<a class="idref" href="lib.lang.Lang.html#LElemSet"><span class="id" title="constructor">LElemSet</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Datatypes.html#nil"><span class="id" title="constructor">nil</span></a>) <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l</span>; <span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a>: <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a>: <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labelleq_lunion_labelleq_lemma1"><span class="id" title="lemma">labelleq_lunion_labelleq_lemma1</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> (<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l1</span>; <span class="id" title="tactic">destruct</span> <span class="id" title="var">l2</span>; <span class="id" title="tactic">auto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">∃</span> <span class="id" title="var">les</span>, (<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.ListSet.html#set_union"><span class="id" title="definition">set_union</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Arith.PeanoNat.html#Nat.eq_dec"><span class="id" title="lemma">Nat.eq_dec</span></a> <span class="id" title="var">les</span> <span class="id" title="var">les0</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>. <span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.List.html#incl"><span class="id" title="definition">incl</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.ListSet.html#set_union_intro1"><span class="id" title="lemma">set_union_intro1</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">labelleq_lunion_labelleq_lemma1</span>: <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labelleq_lunion_labelleq_lemma2"><span class="id" title="lemma">labelleq_lunion_labelleq_lemma2</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> (<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l1</span>; <span class="id" title="tactic">destruct</span> <span class="id" title="var">l2</span>; <span class="id" title="tactic">auto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">∃</span> <span class="id" title="var">les0</span>, (<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.ListSet.html#set_union"><span class="id" title="definition">set_union</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Arith.PeanoNat.html#Nat.eq_dec"><span class="id" title="lemma">Nat.eq_dec</span></a> <span class="id" title="var">les</span> <span class="id" title="var">les0</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>. <span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.List.html#incl"><span class="id" title="definition">incl</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.ListSet.html#set_union_intro2"><span class="id" title="lemma">set_union_intro2</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">labelleq_lunion_labelleq_lemma2</span>: <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">lunion_labelleq</span>: <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">labelleq_trans</span>: <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">labelleq_lunion_labelleq_lemma1</span>: <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">labelleq_lunion_labelleq_lemma2</span>: <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labelleq_lunion_labelleq"><span class="id" title="lemma">labelleq_lunion_labelleq</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span> <span class="id" title="var">l3</span> <span class="id" title="var">l4</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l3"><span class="id" title="variable">l3</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l4"><span class="id" title="variable">l4</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> (<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l3"><span class="id" title="variable">l3</span></a>) (<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l4"><span class="id" title="variable">l4</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">labelleq_lunion_labelleq</span>: <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Hint Unfold</span> <a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a>: <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="lunion_labeleq"><span class="id" title="lemma">lunion_labeleq</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span> <span class="id" title="var">l3</span> <span class="id" title="var">l4</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l3"><span class="id" title="variable">l3</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l4"><span class="id" title="variable">l4</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a> (<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l3"><span class="id" title="variable">l3</span></a>) (<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l4"><span class="id" title="variable">l4</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">H</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">H0</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">lunion_labeleq</span>: <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labeleq_labelleq_labelleq"><span class="id" title="lemma">labeleq_labelleq_labelleq</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span> <span class="id" title="var">l3</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l3"><span class="id" title="variable">l3</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l3"><span class="id" title="variable">l3</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a> <span class="id" title="tactic">in</span> <span class="id" title="var">H</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">H</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">labeleq_labelleq_labelleq</span>: <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="lunion_l_l_eq_l"><span class="id" title="lemma">lunion_l_l_eq_l</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">induction</span> <span class="id" title="var">l</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="lib.lemmas.MListSet.html#set_union_s_s_eq_s"><span class="id" title="lemma">set_union_s_s_eq_s</span></a>; <span class="id" title="tactic">eauto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">lunion_l_l_eq_l</span>: <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="lunion_l_l_eq_ll"><span class="id" title="lemma">lunion_l_l_eq_ll</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">subst</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="lunion_l_l_eq_lr"><span class="id" title="lemma">lunion_l_l_eq_lr</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a> <a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">subst</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">lunion_l_l_eq_ll</span>: <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">lunion_l_l_eq_lr</span>: <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="nlabelleq_lunion_l"><span class="id" title="lemma">nlabelleq_lunion_l</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span> <span class="id" title="var">l</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">Hnlabelleq</span>: <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#611abc97cba304de784fa909dbdea1fa"><span class="id" title="notation">¬</span></a> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#611abc97cba304de784fa909dbdea1fa"><span class="id" title="notation">¬</span></a> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> (<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a>) <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intro</span> <span class="id" title="var">Hnlabelleq'</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">Hnlabelleq</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="nlabelleq_lunion_r"><span class="id" title="lemma">nlabelleq_lunion_r</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span> <span class="id" title="var">l</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">Hnlabelleq</span>: <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#611abc97cba304de784fa909dbdea1fa"><span class="id" title="notation">¬</span></a> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#611abc97cba304de784fa909dbdea1fa"><span class="id" title="notation">¬</span></a> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> (<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a>) <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intro</span> <span class="id" title="var">Hnlabelleq'</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">Hnlabelleq</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">nlabelleq_lunion_l</span>: <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">nlabelleq_lunion_r</span>: <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="nlabelleq_lunion_false"><span class="id" title="lemma">nlabelleq_lunion_false</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">Hnlabelleq</span>: <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#611abc97cba304de784fa909dbdea1fa"><span class="id" title="notation">¬</span></a> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> (<a class="idref" href="lib.lang.Lang.html#lunion"><span class="id" title="definition">lunion</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a>)),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#False"><span class="id" title="inductive">False</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">Hnlabelleq</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labelleq_lempty_l"><span class="id" title="lemma">labelleq_lempty_l</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#lempty"><span class="id" title="definition">lempty</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.lemmas.Label.html#lempty"><span class="id" title="definition">lempty</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">repeat</span> <span class="id" title="tactic">eapply</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#ex_intro"><span class="id" title="constructor">ex_intro</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">eauto</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">eauto</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Lists.List.html#incl"><span class="id" title="definition">incl</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">inversion</span> <span class="id" title="var">H</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">labelleq_lempty_l</span>: <span class="id" title="var">baselabel</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="nlabelleq_lempty_l_eq_lempty"><span class="id" title="lemma">nlabelleq_lempty_l_eq_lempty</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="id" title="var">Hnlabelleq</span>: <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#611abc97cba304de784fa909dbdea1fa"><span class="id" title="notation">¬</span></a> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#lempty"><span class="id" title="definition">lempty</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#lempty"><span class="id" title="definition">lempty</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">Hnlabelleq</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eauto</span> <span class="id" title="keyword">with</span> <span class="id" title="var">baselabel</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab16"></a><h1 class="section">Lemmas about labeleq</h1>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labeleq_dec"><span class="id" title="lemma">labeleq_dec</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">{</span></a><a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">}</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">+</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">{</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#611abc97cba304de784fa909dbdea1fa"><span class="id" title="notation">¬</span></a> <a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a><a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Specif.html#5bf2050e90b21ebc82dc5463d1ba338e"><span class="id" title="notation">}</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> (<a class="idref" href="lib.lang.lemmas.Label.html#labelleq_dec"><span class="id" title="lemma">labelleq_dec</span></a> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span>); <span class="id" title="tactic">destruct</span> (<a class="idref" href="lib.lang.lemmas.Label.html#labelleq_dec"><span class="id" title="lemma">labelleq_dec</span></a> <span class="id" title="var">l2</span> <span class="id" title="var">l1</span>);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">try</span> <span class="id" title="tactic">solve</span> [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">left</span>;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>];<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">try</span> <span class="id" title="tactic">solve</span> [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">right</span>;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">intro</span> <span class="id" title="var">Hlabeleq</span>; <span class="id" title="tactic">auto</span>;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">Hlabeleq</span>;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">auto</span>].<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">labelleq_dec</span>: <span class="id" title="var">basedec</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Hint Resolve</span> <span class="id" title="var">eq_Label_dec</span>: <span class="id" title="var">basedec</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labeleq_trans"><span class="id" title="lemma">labeleq_trans</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span> <span class="id" title="var">l3</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l3"><span class="id" title="variable">l3</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l3"><span class="id" title="variable">l3</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">H</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">H1</span> <span class="id" title="var">H2</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">H0</span> <span class="id" title="keyword">as</span> [<span class="id" title="var">H3</span> <span class="id" title="var">H4</span>].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> (<a class="idref" href="lib.lang.lemmas.Label.html#labelleq_trans"><span class="id" title="lemma">labelleq_trans</span></a> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span> <span class="id" title="var">l3</span>); <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> (<a class="idref" href="lib.lang.lemmas.Label.html#labelleq_trans"><span class="id" title="lemma">labelleq_trans</span></a> <span class="id" title="var">l3</span> <span class="id" title="var">l2</span> <span class="id" title="var">l1</span>); <span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labeleq_symm"><span class="id" title="lemma">labeleq_symm</span></a>:<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l1</span> <span class="id" title="var">l2</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.7.0/stdlib//Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">→</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l2"><span class="id" title="variable">l2</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l1"><span class="id" title="variable">l1</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">H</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="labeleq_refl"><span class="id" title="lemma">labeleq_refl</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">∀</span> <span class="id" title="var">l</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a> <a class="idref" href="lib.lang.lemmas.Label.html#l"><span class="id" title="variable">l</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labeleq"><span class="id" title="definition">labeleq</span></a>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">assert</span> (<a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> <span class="id" title="var">l</span> <span class="id" title="var">l</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="lib.lang.Lang.html#labelleq"><span class="id" title="definition">labelleq</span></a> .<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">destruct</span> <span class="id" title="var">l</span>; <span class="id" title="tactic">auto</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">right</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">∃</span> <span class="id" title="var">les</span>, <span class="id" title="var">les</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>; <span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+</div>
+</div>
+
+<div id="footer">
+<hr/><a href="index.html">Index</a><hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
+</div>
+
+</div>
+
+</body>
+</html>

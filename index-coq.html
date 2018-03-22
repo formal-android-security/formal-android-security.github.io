@@ -1,0 +1,48 @@
+<html>
+    <head>
+    <meta http-equiv=Content-Type  content="text/html; charset=utf8">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    </head>
+
+    <body>
+    <h1>A Lightweight Dynamic Enforcement of Privacy Protection for Android</h1>
+<h2>The Language and the Policy</h2>
+<ul>
+<li><a href="lib.lang.Lang.html">Lang.v</a>: the syntax of the <a href="lib.lang.Lang.html#lab3">language</a>, 
+    the <a href="lib.lang.Lang.html#lab2">policy</a> and the
+    <a href="lib.lang.Lang.html#lab7">operational semantics</a> are defined here.
+    Note that our program may consist of multiple processes.</li>
+</ul>
+<h2>Static Checking and Program Translation</h2>
+<ul>
+<li><a href="lib.typechecking.Typeinfer.html">Typeinfer.v</a>: the <a href="lib.typechecking.Typeinfer.html#lab20">typing rules</a> 
+    and the <a href="lib.typechecking.Typeinfer.html#lab21">translation rules</a> are
+    defined here.</li>
+</ul>
+<h2>The Soundness</h2>
+<ul>
+<li><a href="lib.soundness.LeakFree.html">LeakFree.v</a>: the leakage freedom property is
+    defined here. It is a non-interference-like property, stating that 
+    values of the variables not listed in the sending permission of process i,
+    cannot affect the output influenced by the process i.
+    In other words, process i does not send out the confidential data 
+    unpermitted by its sending permission.</li>
+<li><a href="lib.soundness.Sound.html">Sound.v</a>: the definition and proof of soundness are shown here. The
+    soundness states that if the program is well-typed(i.e. it can be transformed
+    to be an instrumented version), then it will not leak 
+    any confidential information.</li>
+<li><a href="lib.soundness.simulation.Simulation.html">Simulation.v</a>: the definitions of
+    the <a href="lib.soundness.simulation.Simulation.html#TSim">simulation between two process configuration</a> and
+    the <a href="lib.soundness.simulation.Simulation.html#PSim">simulation between two program configuration</a> are shown here.
+    We use the <em>simulation</em> technique to help prove the non-interference.</li>
+<li><a href="lib.soundness.simulation.Compositionality.html">Compositionality.v</a>: the
+    definition and the proof of the <a href="lib.soundness.simulation.Compositionality.html#Compositionality">compositionality</a> of the simulation are shown
+    here. The compositionality states that if forall <em>i</em> such that the <em>i</em>th 
+    process of program <em>p1</em> simulates the <em>i</em>th process of program <em>p2</em>,
+    then <em>p1</em>  simulates <em>p2</em>.</li>
+</ul>
+<p>The whole index of the coq files can be accessed <a href="index.html">here </a>.</p>
+<p>The whole proof can be download
+<a href="http://ssg.ustcsz.edu.cn/~zzp/research/android_security/android_security_proof.rar">here</a>.</p>
+    </body>
+</html>
