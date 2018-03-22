@@ -37,3 +37,4 @@ The whole index of the coq files can be accessed [here ](doc/index.html).
 
 The whole proof can be download
 [here](https://raw.githubusercontent.com/formal-android-security/formal-android-security.github.io/master/coq_proof_8.7.zip).
+Please compile the coq files with Coq 8.7.0 version.
